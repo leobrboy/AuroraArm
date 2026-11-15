@@ -1,0 +1,1 @@
+M4_QEMU_PASS vectors=2001 max_error_uV=10 safe_speed_cap=PASS voltage_clamp=PASS

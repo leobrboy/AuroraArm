@@ -1,0 +1,9 @@
+SOFTWARE_ONLY_MODEL: sampled motor + joint plant, quantized encoder/ADC/PWM, position PID
+ASSUMPTIONS encoder=65536 counts/rev; ADC=12 bits over +/-8 A; signed PWM=12 bits over +/-48 V; Ts=0.002 s
+ASSUMPTIONS one-cycle command delay scenario; no random noise, backlash, flexible links, thermal model, brake model, or real-time scheduler
+load_Nm,actuator_delay_ms,overshoot_pct,settling_ms,final_error_rad,peak_abs_voltage_V,peak_abs_current_A
+0.200,0.0,0.961822,258,2.22585361e-05,14.2066,7.91436
+0.250,0.0,0.900463,260,7.51175727e-07,14.1597,7.91532
+0.300,0.0,0.563946,266,2.07562265e-07,14.1832,7.91628
+0.250,2.0,0.869783,262,1.70991372e-06,14.1363,7.92431
+LIMITS: analytical software scenarios only; not physical safety or target WCET evidence

@@ -1,0 +1,31 @@
+A =
+-666.666667 -70.8333333 0
+202.380952 -0.357142857 0
+0 1 0
+B =
+833.333333
+0
+0
+Cj = [0 0 0.01], D = 0
+rank controllability = 3 / 3
+rank observability = 3 / 3 (position output)
+eigenvalues =
+0+0i
+-22.6151728+0i
+-644.408637+0i
+tau_e = 0.0015 s; tau_m = 0.045745405 s; samples/tau_m = 22.8727025
+operating point: I = 2.94117647 A, V = 40.6029412 V, voltage headroom = 7.39705882 V, current headroom = 5.05882353 A
+critical endpoint speed = 1575 mm/s; safe speed cap for 250 mm/s = 71.4285714 rad/s motor
+REQ-SAFE-AA-001 worst enumerated logical latency = 22 ms; deadline = 100 ms; PASS (torque-zero command only)
+REQ-SAFE-AA-001 conservative budget including one supervisor cycle = 24 ms; PASS logically, physical stop unproven
+REQ-SAFE-AA-002 no automatic restart: PASS (transition invariant); sequences checked = 3125
+Supervisor coverage: 5/5 states; 25/25 state-event pairs; liveness witness = 1; preliminary defect counterexample found = 1: obstacle -> torque_zero_confirmed -> resume (MOVING without field_clear/rearm)
+REQ-SAFE-AA-003 conditional liveness: field_clear -> operator_rearm -> resume reaches MOVING = 1
+REQ-SAFE-AA-004 critical speed = 1575 mm/s vs limit 250 mm/s: FAIL AT CRITICAL POINT; safe-mode motor cap = 71.4285714 rad/s
+CTRL step: reference = 0.1 rad joint; Kp=800 Ki=400 Kd=45; overshoot=1.65754%; settling=240 ms; final error=3.93606772e-10 rad
+CTRL constraints in ZOH simulation: peak |V|=14.4102881 V <=48; peak |i|=8 A <=8
+REQ-HW-001 500 Hz loop: Ts=0.002 s; host timing proxy in tests/host_timing.txt; Cortex-M4 WCET <200 us and 256 KB remain to be verified on target
+Host object-size report (not target-linked firmware image): text	   data	    bss	    dec	    hex	filename
+    588	      0	      0	    588	    24c	tests/controller.o
+REQ-SAFE-AA-004 generated safe-speed reference limiter tested by compiled C harness at 450 rad/s request
+SIL compiled C max absolute output difference = 1.4152896e-05 V; float epsilon = 1.1920929e-07; acceptance tolerance = 1e-4 V; PASS
